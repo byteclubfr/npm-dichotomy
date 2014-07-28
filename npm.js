@@ -3,16 +3,20 @@ var Promise = require('bluebird')
 var _ = require('lodash')
 
 
-module.exports = load
+var _client;
 
+module.exports = function getClient () {
+  if (!_client) {
+    _client =   Promise.promisify(npm.load)({
+      "loglevel": "silent"
+    }).then(clientApi)
+  }
 
-function load () {
-  return Promise.promisify(npm.load)({
-    "loglevel": "silent"
-  }).then(client)
+  return _client
 }
 
-function client (npm) {
+
+function clientApi (npm) {
   var cmdView = Promise.promisify(npm.commands.view, npm.commands)
   var cmdInstall = Promise.promisify(npm.commands.install, npm.commands)
 
