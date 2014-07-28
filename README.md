@@ -1,12 +1,12 @@
-When?
------
+Who? Why? When?
+---------------
 
 I made this tool when I just got a project from my coworker, and after running `npm install` then `grunt build` failed miserably. It was working well on his machine, so we compared `npm ls` and after a few manual `npm install` I finally discovered that a very specific version of a module was required to make the `grunt build` work.
 
 This situation **should never happen**. In a ideal world where developers all follow `semver` and don't let their projects in version `0.x` for its whole life, then it would not happen. But we don't live in this world :(
 
-Status
-------
+What?
+-----
 
 Work in progress. Tool is working, but it needs some polish and documentation :)
 
@@ -21,17 +21,18 @@ It, above all, needs optimization in the process too.
 * [ ] Tool to generate `npm-dichotomy.json` (some smart guesses from `package.json`)
 * [ ] Conquer the world
 
-Installation
-------------
+How?
+----
+
+### Installation
 
 ```
 npm install -g npm-dichotomy
 ```
 
-Usage
------
+### Configure & run
 
-Create a `npm-dichotomy.json`:
+Create a `npm-dichotomy.json` file:
 
 ```json
 {
@@ -52,6 +53,12 @@ Create a `npm-dichotomy.json`:
   * A rule is a method of `semver` module, you will generally need `lte`, `lt`, `gte`, `gt` and `satisfies` which are all self-explanatory
   * Typically you know that your test worked once in your project's life, you have an idea of the few modules that may cause the bug, you may simply list them and add a single `satisfies` rule copied from your `package.json`
   * Additionnally, you may know a module's version when it was working, you can then add a `gte` rule to limit the number of tested versions
+
+Then run
+
+```sh
+npm-dichotomy
+```
 
 ### How it works
 
