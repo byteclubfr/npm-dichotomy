@@ -1,0 +1,22 @@
+{
+  "name": "npm-dichotomy",
+  "version": "0.1.1",
+  "description": "Weird behavior after a npm install/update? discover what most recent versions can work without the hassle of manual dichotomic search",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicolas Chambrier <naholyr@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.2.2",
+    "js-combinatorics": "^0.3.0",
+    "lodash": "^2.4.1",
+    "npm": "^1.4.21",
+    "semver": "^3.0.0"
+  },
+  "devDependencies": {},
+  "bin": {
+    "npm-dichotomy": "cli.js"
+  }
+}
