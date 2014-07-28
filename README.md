@@ -12,6 +12,15 @@ Work in progress. Tool is working, but it needs some polish and documentation :)
 
 It, above all, needs optimization in the process too.
 
+### Roadmap
+
+* [x] Working API
+* [x] Working CLI
+* [ ] Better output
+* [ ] Better performance (parallel downloads and/or installs and/or tests)
+* [ ] Tool to generate `npm-dichotomy.json` (some smart guesses from `package.json`)
+* [ ] Conquer the world
+
 Installation
 ------------
 
@@ -44,13 +53,19 @@ Create a `npm-dichotomy.json`:
   * Typically you know that your test worked once in your project's life, you have an idea of the few modules that may cause the bug, you may simply list them and add a single `satisfies` rule copied from your `package.json`
   * Additionnally, you may know a module's version when it was working, you can then add a `gte` rule to limit the number of tested versions
 
+### How it works
+
 `npm-dichotomy` will then grab available versions for each module, keep only the matching ones, then calculate all the possible combinations and **test them all**, one by one. That can be long, time for a cup of tea.
 
 You can follow the progress in standard output, but that's not really the point of this command, it's supposed to free your mind from this annoying task. At the very end `npm-dichotomy` will display the successful combinations.
+
+### Final result
 
 ```js
 [ { versions: [ 'grunt@0.4.2', 'grunt-angular-templates@0.4.9' ],
     success: true } ]
 ```
+
+### What then?
 
 Now you know, you can make your `package.json` more strict, yell on modules' maintainers, or try to understand why it failed, with a lot more information.
