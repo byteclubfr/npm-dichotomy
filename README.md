@@ -48,7 +48,7 @@ Create a `npm-dichotomy.json`:
 
 You can follow the progress in standard output, but that's not really the point of this command, it's supposed to free your mind from this annoying task. At the very end `npm-dichotomy` will display the successful combinations.
 
-```json
+```js
 [ { versions: [ 'grunt@0.4.2', 'grunt-angular-templates@0.4.9' ],
     success: true } ]
 ```
